@@ -9,6 +9,7 @@ module Prawn
       def fresh_content_streams(options = {})
         (1..page_count).each do |i|
           go_to_page i
+          state.page.wrap_graphics_state
           state.page.new_content_stream
           apply_margin_options(options)
           generate_margin_box
